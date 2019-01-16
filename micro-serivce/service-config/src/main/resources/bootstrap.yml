@@ -5,10 +5,11 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/forezp/SpringcloudConfig/
-          searchPaths: respo
+          uri: https://github.com/JunahW/service-config/
+          searchPaths: config
           username:
           password:
+          default-label: master
         bootstrap: true
 
 eureka.client.serviceUrl.defaultZone: http://localhost:9001/eureka
