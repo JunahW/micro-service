@@ -1,0 +1,26 @@
+spring:
+  application.name: service-eureka
+  profiles.active: dev
+server:
+  port: 9001
+
+eureka:
+  server:
+    eviction-interval-timer-in-ms: 4000
+---
+spring:
+  profiles: dev
+eureka:
+  environment: dev
+  instance:
+    hostname: localhost
+    port: ${server.port}
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 2

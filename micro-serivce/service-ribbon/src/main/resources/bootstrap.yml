@@ -1,0 +1,12 @@
+spring:
+  application.name: service-ribbon
+server:
+  port: 9003
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka
